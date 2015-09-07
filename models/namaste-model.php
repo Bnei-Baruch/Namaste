@@ -462,6 +462,7 @@ class NamasteLMS {
 			update_option('namaste_points_course', $_POST['points_course']);
 			update_option('namaste_points_lesson', $_POST['points_lesson']);
 			update_option('namaste_points_homework', $_POST['points_homework']);
+			do_action('namaste_default_points_update');
 		}
 		
 		// select all roles in the system
