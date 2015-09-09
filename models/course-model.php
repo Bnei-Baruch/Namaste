@@ -81,8 +81,10 @@ class NamasteLMSCourseModel {
 			$currency = get_option('namaste_currency');
 			
 			$use_points_system = get_option('namaste_use_points_system');
+			//get award points for compliting the course 
 			$award_points = get_post_meta($post->ID, 'namaste_award_points', true);
 			if($award_points === '') $award_points = get_option('namaste_points_course');
+			do_action('namaste_single_course_points_print',$post);
 			
 			// other courses
 			$other_courses = $wpdb->get_results($wpdb->prepare("SELECT * FROM {$wpdb->posts} tP			
@@ -125,7 +127,9 @@ class NamasteLMSCourseModel {
 			update_post_meta($post_id, "namaste_fee", $_POST['namaste_fee']);
 			update_post_meta($post_id, "namaste_access", $_POST['namaste_access']);
 			update_post_meta($post_id, "namaste_unenroll", @$_POST['namaste_unenroll']);
+			//update course's, webinar, workshop points
 			if(isset($_POST['namaste_award_points'])) update_post_meta($post_id, "namaste_award_points", $_POST['namaste_award_points']);
+			do_action('namaste_single_course_points_update',$post_id);
 	}	
 	
 	// select existing courses

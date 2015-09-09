@@ -73,6 +73,7 @@
 				
 				<p><?php _e('Reward', 'namaste')?> <input type="text" name="points_homework" size="4" value="<?php echo get_option('namaste_points_homework')?>"> <?php _e('points for successfully completing a homework / assignment', 'namaste')?></p>
 				
+				<?php do_action('namster_after_default_points_fields'); ?>
 				<h3><?php _e('Shortcodes enabled by using a points system', 'namaste');?></h3>
 				<p><?php _e('If you activate a points system the following shortcodes become available:', 'namaste');?></p>
 				

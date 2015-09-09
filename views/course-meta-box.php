@@ -40,6 +40,7 @@ endif;?>
 
 <?php if(!empty($use_points_system)):?>
 	<p><?php _e('Reward', 'namaste')?> <input type="text" size="4" name="namaste_award_points" value="<?php echo $award_points?>"> <?php _e('points for completing this course.', 'namaste')?></p>
+	<?php do_action('namaste_after_single_course_points_fields',$post) ?>
 <?php endif;?>
 
 <?php do_action('namaste-course-meta-box', $post);?>
